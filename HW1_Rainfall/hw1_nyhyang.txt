@@ -1,0 +1,14 @@
+Reflection on Rainfall Redux Problem
+
+There are three main parts that I found tricky while I was doing the test : 1. Retrieving data 2.ValueError 3. DivZero
+
+The first time I tried to import data, I used .readlines().split(). When I use index[0] for the data, there’s some problem in the test cases like example 3 (3garbages). It still added the 3 into my count list while it was not expected. I think it would be tricky for the students doing this and did not consider this scenario. 
+
+Besides negative numbers, tester will also need to take into consideration if the data is not a number. This might be tricky because students would assume only the number scenario mentioned in the instruction (take non-negative number) if no further examples are given. 
+
+Div Zero is tricky because it is not necessarily wrong with the codes yet need to be taken into consideration after cleaning the data.
+
+My takeaway after doing the place-in and reading the paper is that it would be helpful to come up with some test cases that may not seem straightforward. The examples given in the place-in is helpful during the test but in the real world we will need to think of all the corner cases on our own. 
+
+
+
