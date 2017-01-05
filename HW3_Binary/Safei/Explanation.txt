@@ -1,0 +1,21 @@
+Enter the file name to read:
+> text2.txt
+Query?
+physician
+The word  physician  appears  4  times in the tree
+Query?
+stats
+Elements in this tree:  1782
+Depth of this tree:  22
+Query?
+terminate
+Goodbye!
+
+
+
+
+Bug list:
+(find) output error
+
+
+how many words? 7016
