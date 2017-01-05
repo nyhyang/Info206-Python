@@ -1,0 +1,75 @@
+Describe your algorithm for part (3) in
+
+The basic concept is to break down the big triangle into smaller triangles. 
+
+for example: 
+
+   2
+
+  6 3
+
+ 1 3 5
+
+7 4 8 2
+
+into 
+
+   2
+
+  6 3
+
+ 1 3 5
+
+7   8 
+
+then 
+   
+    2
+
+  6  3
+
+ 8 11 13
+
+then
+
+    2
+
+  6  3
+
+   11 13
+
+then 
+
+    2
+
+  17  16
+
+
+end up taking the 2 --> 17( 6 --> 3 --> 8) path. 
+
+
+I separate my code into two parts. The first part is to get the max sum path from bottom up and the traverse again back from top down to find the combination of the path. 
+
+For the bottom up, I started from the second row from the bottom since it's the last row with children. It goes 1 row down with the two options that add up to this node, take the max one and go up from here (at the same append it to a list). From this loop, I could find the largest sum from the triangle. 
+
+After that, I start from the list with the largest sum then subtract the largest children at the same time append the difference to another list that would keep track of all the numbers that add up to this path. In the end, I could get all the numbers that add up to the largest path by subtracting the lartgest number from the children. 
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+

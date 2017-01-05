@@ -1,0 +1,97 @@
+HW10 - MapReduce my heart
+The good news is that this is our last homework assignment.  The bad news is that this may be the most challenging homework assignment.  An early start is highly recommended.  You do have until the end of the day on November 18th to hand this in.
+ 
+-----------------------------------------------------------------------------
+ 
+In this assignment, you will write two MapReduce programs that use a Yelp data set.  There is an extra credit option.
+ 
+You are a new hire in the data science team at Yope, an Internet company that provides business yellow page information and user reviews. After first week's training, you have enjoyed the relaxing atmosphere and all-you-can-drink beer fountain at work. Now your boss comes to you with your first several work assignment.
+ 
+Setting up your machine with map reduce
+Install the mrjob package using pip install mrjob.
+ 
+You can find supplementary files
+unique_word_template.py
+user_similarity_template.py
+yelp_academic_dataset_review.json
+in hw9files.zip on the class resources page.
+ 
+In general, you will run your programs with  yelp_academic_dataset_review.json as an argument.  For example: 
+ 
+python <your python file> yelp_academic_dataset_review.json.
+ 
+Part 1:  Most unique review
+ 
+Your boss asks you to search the company database for the online review that is most unique. (Maybe they are randomly generated content and need to be removed). You decide to use mapreduce to find the review with the most words that are not used in any other review.
+ 
+In this part, start from unique_word_template.py. Finish each TODO section and make it run to output the review id in which contains the most unique words. (Those words only appear in one review, and do not appear in others.)
+ 
+Sample Output:
+ 
+"WXshgoreBsq124bnadiu3nq" 120
+  
+r1: Great place. good food. great ambience
+r2: Great ambience
+r3: Nice place
+
+mapper1 o/p and reducer1 i/p:
+
+great: r1, r1, r2
+place: r1, r3
+good: r1
+food: r1
+ambience: r1, r2
+nice: r3
+
+reducer1 o/p and reducer2 i/p:
+r1: 1,1
+r3: 1
+
+reducer2 o/p and mapper3 i/p:
+r1: 2
+r3: 1
+
+mapper3 o/p and reducer3 i/p:
+"MAX": [2, r1], [1,r3]
+
+reducer3 o/p:
+r1 2
+
+
+
+Part 2:  Duplicate user detection
+ 
+Your company has a problem with users trying to cheat the system by setting up multiple accounts to make reviews. Your boss asks you to find a way to detect when two accounts actually belong to the same person. You theorize that two accounts with reviews that always rate similar business will belong to the same person (Some corrupt individuals were paid to write reviews for businesses). You want to write a program to flag those accounts.
+ 
+In this part, start from user_similarity_template.py. Finish each TODO section and make it run to output pairs of user ids <user_id_1, user_id_2> and its Jaccard score if the Jaccard similarity >= 0.5. Please review the definition of Jaccard similarity on Wikipedia (http://en.wikipedia.org/wiki/Jaccard_index) or Coursera (https://class.coursera.org/nlp/lecture/184).
+ 
+Sample Output:
+ 
+["xx2j7XRWLFN7QavS5jcbFw", "yZEz7ZHDt9MU7ehH9ecCQA"] 0.5
+["xyuqtuV71y2F3uD9z97jPw", "zvfGidbeZn9A_kkRWK6JLw"] 0.6
+ 
+Extra Credit:  Duplicate user detection - A more accurate model
+ 
+After presenting your boss with the results of Part 2, you realize that user pairs with high business similarity are not necessarily a single user. (Maybe they are two people who live in the same area with similar dining habits.) However, you notice that some users tend to use a similar word set for reviewing. So you come up another approach to identify duplicate account: If two users use similar words in their reviews (Jaccard similarity >= 0.5), the two user ids are suspected of being owned by one person. You want to write a program to output those accounts.
+ 
+For the extra credit, there is no code template. Your mission is to create a program that calculate the word set similarity by Jaccard function, and output those user pairs whose Jaccard similarity >= 0.5.
+ 
+For example: if User1 uses word set (W1, W2, W3) in all reviews and User2 uses word set (W1, W2, W4) in all reviews, then the Jaccard similarity is 
+ 
+len ([W1,W2])/ len ([W1,W2,W3,W4]) = 2/4 = 0.5.
+ 
+Your program should output <user_id_1, user_id_2> and its Jaccard similarity score.
+ 
+Sample Output:
+ 
+["yLYR5tt0_mRvDwVmkZ7Frw", "zXJ0IhDQzpJXQ8mPdCqbsg"] 0.6
+["yM0Bv8lqQrx9Yo0_1rtqxg", "ypqCBI5rMe_ecGE1iZpQaQ"] 0.9
+ 
+Homework submission
+ 
+Prepare two (or three) files:  
+hw10_part1.<UserID>.py
+hw10_part2.<UserID>.py
+hw10_extracredit.<UserID>.py and upload them using the usual process. 
+ 
+This assignment is due on November 18 at 11:59PM.  
