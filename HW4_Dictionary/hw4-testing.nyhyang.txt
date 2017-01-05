@@ -1,0 +1,37 @@
+
+Q1 How did I test my program?
+(what test cases and strategies did you use) 
+
+1. tested a word that is not in the txt file -- I then added a feedback showing that the word is not in the dictionary for this search term
+2. if there is an empty line in the txt file : I handled the exception which ignores the input if there is no book title or no url. 
+3. no file -- added the try block and filenotfounderror to prevent crashing
+4. duplicate input like two exact same book names -- 
+	I added the if block in the match_dict() that only appends value that is not in the existing key-value pair. 
+	Therefore, the duplicate value will be updated to the existing key. It will use the new value (which is the same as the first url) to run. 
+5. just title no url , just url no title  -- added the try block so the it will create the dictionary only when there is a url. 
+6. If there is a , in the book title -- this cases made me change my match_dict() that was originally using use splitlines(',')
+
+
+Q2 What are the boundary cases? 
+1. If there is a , in the book title
+2. if there is an empty line in the txt file
+3. no file
+4. duplicate input 
+5. just title no url , just url no title 
+
+Q3 What happens if catalog.txt comes in an unexpected format? 
+
+The code will still work but will return an empty key-value pair in the dictionary. 
+
+Q4 What happens if a link is broken or the contents come in an unexpected format? etc.
+
+In the readbook() of the (er.URLError) part it will handle this problem and print("The url is not functional: " + url) 
+
+ 
+
+
+
+
+
+
+

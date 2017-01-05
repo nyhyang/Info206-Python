@@ -1,0 +1,36 @@
+Given the explicit explanation of public/private keys concept in class and lab has made me a step ahead than the users in the paper. However, I still encountered some usability issues. 
+
+Creating a key
+After creating a private/public key pairs and attempting to export and share it with other people, it was unclear whether the key I exported is my private or public. For general public, this might raise some concerns. In the create new key section, it is unclear whether the "upload key" option is the same as "send public key to key server" on right click in the main menu. As mentioned in the paper, it still doesn't notify the user when one tries to upload it to key server that it will remain public and there is no way to delete that. 
+
+
+Look up keys
+It is not clear if whether the user should enter the name of the person he/she is looking for, the key ID or email. It would be better if there is a message for suggestions what to search for. 
+
+
+Public keys 
+In the validity section, my key is by default ultimate with 4 green boxes. However, the difference between full, marginal, never, and undefined validity is not clearly indicated. All shows 2 brown boxes when I tried to update the key validity I received. The interface could use number of filled box to indicate the level difference of the validity. 
+
+
+Encrypting and Signing
+The first time I attempted to encrypt the email to send to my partner, I used my private key to encrypt it by mistake. When he received, he had trouble decrypting. It is not until I tried encrypting it with his key that we successfully completed the task. It would be better if there's a prompt to remind the user to encrypt using the public key of the person he/she is sending the email to. 
+
+In my first attempt to sign, I tried to sign it without selecting the message and there was no error message. No error message might make user think that he/she presses the wrong hot key and goes back to the preference and checks it again. This will frustrate the user after couple attempts.
+
+
+Decrypting and Verifying
+
+The PGP version in the paper verified and decrypted an email at the same time while the version we use separates these two features. In the first email we received from Keshav, I decrypted and clicked on the link before I verified the signature. I think it would be better if there is a pop up notification that reminds a first-time user to verify the signature before continuing attempt action with the email. In addition, the need to select all the message to verify the signature is confusing. After decrypting the message, only the signature remains encrypted and therefore it is not intuitive to select the decrypted message along with the encrypted signature in order to verify a signature. By selecting only the encrypted signature and verify, it will pop up that no signature is found. However, an error message that tells the user that he/she selects the wrong area would be more helpful. 
+
+
+Conclusion
+If I was trying to do this by myself without lab instruction, I might end up giving up as well. There are a lot of nuances that a first-time user might miss. It would be more helpful if there is a 30 second on-boarding animation instruction to learn how to use the service.
+
+
+
+
+
+
+
+
+
